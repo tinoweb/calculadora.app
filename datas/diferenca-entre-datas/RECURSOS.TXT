@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="../../assets/comunStyle.css">
+
+<!-- ============================================= -->
+
+<div class="prose">
+  <div class="carding stat place-items-center" id="resultado-container" style="display:none;">
+    <div id="resultado-diferenca-dias" class="stat-value">-- dias</div>
+    <div id="resultado-diferenca-meses" class="stat-value">-- meses</div>
+    <div id="resultado-diferenca-semanas" class="stat-value">-- semanas</div>
+    <div id="resultado-diferenca-anos" class="stat-value">-- anos</div>
+  </div>
+</div>
+
+<!-- ============================================= -->
+
+

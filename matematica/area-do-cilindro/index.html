@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de Área do Cilindro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Calculadora.app" />
+    <meta name="theme-color" content="#7ac6ff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora.app" />
+    <meta property="og:site_name" content="Calculadora.app" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../icon.png" data-h-2c9d455="" />
+    <link
+      rel="apple-touch-icon"
+      href="../../_nuxt/icons/512x512.maskable.0cdbae2f.png"
+      sizes="512x512"
+      data-h-bc1de16=""
+    />
+    <link rel="manifest" href="../../manifest.json" />
+    <script
+      defer=""
+      crossorigin="anonymous"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9723141071587345"
+      data-h-6f4c83b=""
+    ></script>
+    <script data-h-bc50e5a="">
+      if (!window.__abg_called) {
+        window.adsbygoogle = window.adsbygoogle || [];
+        adsbygoogle.pauseAdRequests = 0;
+        adsbygoogle.push({
+          google_ad_client: "ca-pub-9723141071587345",
+          overlays: { bottom: false },
+        });
+        window.__abg_called = true;
+      }
+    </script>
+    <meta name="description" content="Aprenda a calcular a área do Cilindro" />
+    <meta name="keywords" content="" />
+ 
+
+    <link rel="stylesheet" href="../../assets/comunStyle.css">
+
+    <link rel="stylesheet" href="../../_nuxt/entry.de8cf95e.css" />
+    <style>
+      #ad-header {
+        height: 90px;
+        margin: 0 auto;
+        max-height: 90px;
+        min-height: 90px;
+        z-index: 100;
+      }
+      .ad-responsive-header {
+        height: 90px;
+        margin: 0 auto;
+        width: 950px;
+      }
+      @media (min-width: 500px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 468px;
+        }
+      }
+      @media (min-width: 800px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 728px;
+        }
+      }
+    </style>
+    <script>
+      "use strict";
+      const w = window,
+        de = document.documentElement,
+        knownColorSchemes = ["dark", "light"],
+        preference = window.localStorage.getItem("nuxt-color-mode") || "system";
+      let value = preference === "system" ? getColorScheme() : preference;
+      const forcedColorMode = de.getAttribute("data-color-mode-forced");
+      forcedColorMode && (value = forcedColorMode),
+        addColorScheme(value),
+        (w["__NUXT_COLOR_MODE__"] = {
+          preference,
+          value,
+          getColorScheme,
+          addColorScheme,
+          removeColorScheme,
+        });
+      function addColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList ? de.classList.add(o) : (de.className += " " + o),
+          t && de.setAttribute("data-" + t, e);
+      }
+      function removeColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList
+          ? de.classList.remove(o)
+          : (de.className = de.className.replace(new RegExp(o, "g"), "")),
+          t && de.removeAttribute("data-" + t);
+      }
+      function prefersColorScheme(e) {
+        return w.matchMedia("(prefers-color-scheme" + e + ")");
+      }
+      function getColorScheme() {
+        if (w.matchMedia && prefersColorScheme("").media !== "not all") {
+          for (const e of knownColorSchemes)
+            if (prefersColorScheme(":" + e).matches) return e;
+        }
+        return "light";
+      }
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("/sw.js")
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div id="__nuxt">
+      <!--[-->
+      <div class="navbar w-full p-0 sticky top-0 h-[90px]" id="ad-header">
+        <ins
+          class="adsbygoogle ad-responsive-header"
+          style="display: inline-block; height: 90px"
+          data-ad-client="ca-pub-9723141071587345"
+          data-ad-slot="1772728892"
+        ></ins>
+      </div>
+      <div class="w-full max-w-4xl flex-grow p-6 mx-auto">
+        <header class="mx-auto">
+          <div class="text-sm breadcrumbs">
+            <ul>
+              <li><a href="../../index.html" class="">Calculadora</a></li>
+              <!--[-->
+              <li><a href="../index.html" class="">Matemática</a></li>
+              <li>
+                <a
+                  aria-current="page"
+                  href="index.html"
+                  class="router-link-active router-link-exact-active"
+                  >Área do Cilindro</a
+                >
+              </li>
+              <!--]-->
+            </ul>
+          </div>
+        </header>
+        <main>
+          <div class="prose prose-sm md:prose-md">
+            <h1>Calculadora de Área do Cilindro</h1>
+          </div>
+          <!--[--><!--[-->
+          <section class="flex flex-col md:flex-row justify-center mb-8">
+            <div class="max-w-sm card flex-shrink-0 w-full shadow-2xl">
+              <div class="card-body not-prose">
+                <h2 class="card-title">Calcule a área do cilindro</h2>
+                <form id="calculadora-form">
+                  <!--[-->
+                  <div class="form-control">
+                    <label class="label" for="input-raiozhn3hkrfq"
+                      ><span class="label-text">Raio</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-raiozhn3hkrfq"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        step="any"
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <label class="label" for="input-alturaurlwofo23"
+                      ><span class="label-text">Altura</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-alturaurlwofo23"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        step="any"
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <label class="label" for="input-pihmkt1vvan"
+                      ><span class="label-text">Pi</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-pihmkt1vvan"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        value="3.14"
+                        step="any"
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <!--]-->
+                  <div class="form-control mt-6">
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-full max-w-xs"
+                      id="calcular"
+                    >
+                      <span>Calcular</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <script>
+              
+              document.getElementById('calculadora-form').addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio do formulário
+
+                // Pega o raio, a altura e o valor de Pi dos inputs
+                var raio = parseFloat(document.getElementById('input-raiozhn3hkrfq').value);
+                var altura = parseFloat(document.getElementById('input-alturaurlwofo23').value);
+                var pi = parseFloat(document.getElementById('input-pihmkt1vvan').value);
+
+                // Calcula a área da base, área lateral e área total
+                var areaBase = pi * raio * raio;
+                var areaLateral = 2 * pi * raio * altura;
+                var areaTotal = (2 * areaBase) + areaLateral;
+
+                // Mostra o container de resultado
+                var resultadoContainer = document.getElementById('resultado-container');
+                resultadoContainer.style.display = 'block';
+
+                // Atualiza os elementos com os resultados
+                document.getElementById('resultado-area-base').textContent = areaBase.toFixed(2);
+                document.getElementById('resultado-area-lateral').textContent = areaLateral.toFixed(2);
+                document.getElementById('resultado-area-total').textContent = areaTotal.toFixed(2);
+              });
+
+            </script>
+
+            <div class="prose">
+              <div class="carding stat place-items-center" id="resultado-container" style="display:none;">
+                
+                <div id="titulo" class="stat-title">Área da base:</div>
+                <div id="resultado-area-base" class="stat-value">---</div>
+                <hr>
+                <div id="ttulo" class="stat-title">Área lateral:</div>
+                <div id="resultado-area-lateral" class="stat-value">---</div>
+                <hr>
+                <div id="titulo" class="stat-title">Área total:</div>
+                <div id="resultado-area-total" class="stat-value">---</div>
+              </div>
+            </div>
+
+
+            <div class="card flex-shrink">
+              <div class="card-body not-prose">
+                <div class="w-[300px] max-w-full h-[300px] max-h-full">
+                  <ins
+                    class="adsbygoogle"
+                    style="display: inline-block; width: 250px; height: 250px"
+                    data-ad-slot="5113988356"
+                    data-ad-format="auto"
+                    data-ad-region="page-0.9128769682792719"
+                    data-ad-layout="fixed"
+                    full-width-responsive="true"
+                  ></ins>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!----><!--]-->
+          <article class="prose">
+            <p>
+              A área do cilindro é uma medida da superfície desse sólido
+              geométrico, que é formado por duas bases circulares paralelas e
+              uma superfície lateral retangular. Para encontrar a área do
+              cilindro, precisamos conhecer as medidas do raio da base e da
+              altura do cilindro. Vamos aprender as fórmulas para calcular cada
+              uma dessas áreas e ver alguns exemplos e exercícios resolvidos.
+              Também vamos apresentar uma calculadora de área do cilindro que
+              pode facilitar os seus cálculos. Acompanhe!
+            </p>
+            <p>
+              Para calcular a área da base do cilindro, basta usar a fórmula da
+              área do círculo, que é πr², onde π é uma constante aproximada por
+              3,14 e r é o raio da base. Como o cilindro tem duas bases iguais,
+              a área total das bases é 2πr². Para calcular a área lateral do
+              cilindro, precisamos saber o comprimento da circunferência da
+              base, que é 2πr, e multiplicá-lo pela altura do cilindro, que é h.
+              Assim, a área lateral é 2πrh. Finalmente, para calcular a área
+              total do cilindro, somamos as áreas das bases e da lateral, ou
+              pela fórmula 2πr² + 2πrh ou 2πr(r + h).
+            </p>
+            <p>
+              Vamos ver um exemplo de como aplicar essas fórmulas. Suponha que
+              temos um cilindro de raio 3 cm e altura 10 cm. Qual é a sua área
+              total? Usando a fórmula da área total, temos:
+            </p>
+            <ul class="steps steps-vertical">
+              <li>π = 3,14</li>
+              <li>Área total = 2πr² + 2πrh</li>
+              <li>Área total = 2π · 3² + 2π · 3 · 10</li>
+              <li>Área total = 2π · 9 + 2π · 30</li>
+              <li>Área total = 18π + 60π</li>
+              <li>Área total = 78π cm²</li>
+              <!---->
+            </ul>
+            <p>
+              Portanto, a área total do cilindro é aproximadamente 244,92 cm².
+            </p>
+            <p>
+              Se você quiser simplificar os seus cálculos, pode usar a nossa
+              calculadora de área do cilindro. Basta inserir os valores do raio
+              e da altura do cilindro e clicar em &quot;Calcular&quot;. A
+              calculadora vai mostrar as áreas da base, da lateral e total do
+              cilindro.
+            </p>
+            <p>
+              A calculadora de área do cilindro é uma ferramenta útil para
+              resolver problemas de geometria espacial envolvendo esse sólido.
+              Ela também pode ajudar a entender melhor as fórmulas e os
+              conceitos relacionados à área do cilindro. Esperamos que este
+              artigo tenha sido esclarecedor e que você tenha aprendido como
+              calcular a área do cilindro com facilidade.
+            </p>
+            <h2>Referências</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://www.todamateria.com.br/area-do-cilindro/"
+                  target="_blank"
+                  >Área do Cilindro - Toda Matéria</a
+                >
+              </li>
+            </ul>
+          </article>
+          <!--]-->
+        </main>
+        <footer class="mt-8">
+          <ul class="menu sm:menu-horizontal xs:min-w-max rounded-box mx-auto">
+            <!--[-->
+            <li>
+              <a href="../../arquitetura/index.html" class="">Arquitetura</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../arquitetura/caixa-dagua/index.html" class=""
+                    >Caixa d&#39;Água</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../arquitetura/inclinacao-de-rampa/index.html"
+                    class=""
+                    >Inclinação de Rampa</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../datas/index.html" class="">Datas</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../datas/adicionar-dias-em-uma-data/index.html"
+                    class=""
+                    >Adicionar dias em uma data</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/diferenca-entre-datas/index.html"
+                    class=""
+                    >Diferença entre Datas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/remover-dias-de-uma-data/index.html"
+                    class=""
+                    >Remover dias em uma data</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../financeiro/index.html" class="">Financeiro</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../financeiro/cheque-especial/index.html" class=""
+                    >Cheque Especial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-consignado/index.html"
+                    class=""
+                    >Empréstimo Consignado</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-pessoal/index.html"
+                    class=""
+                    >Empréstimo Pessoal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/financiamento-veiculos/index.html"
+                    class=""
+                    >Financiamento de Veículos</a
+                  >
+                </li>
+                <li>
+                  <a href="../../financeiro/juros-compostos/index.html" class=""
+                    >Juros Compostos</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../index.html" class="">Matemática</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    aria-current="page"
+                    href="index.html"
+                    class="router-link-active router-link-exact-active"
+                    >Área do Cilindro</a
+                  >
+                </li>
+                <li>
+                  <a href="../area-do-circulo/index.html" class=""
+                    >Área do Círculo</a
+                  >
+                </li>
+                <li>
+                  <a href="../area-do-retangulo/index.html" class=""
+                    >Área do Retângulo</a
+                  >
+                </li>
+                <li>
+                  <a href="../area-do-triangulo/index.html" class=""
+                    >Área do Triângulo</a
+                  >
+                </li>
+                <li><a href="../bhaskara/index.html" class="">Bhaskara</a></li>
+                <li>
+                  <a href="../desvio-padrao/index.html" class=""
+                    >Desvio Padrão</a
+                  >
+                </li>
+                <li>
+                  <a href="../equacao-segundo-grau/index.html" class=""
+                    >Equação de Segundo Grau</a
+                  >
+                </li>
+                <li><a href="../mdc/index.html" class="">MDC</a></li>
+                <li>
+                  <a href="../media-ponderada/index.html" class=""
+                    >Média Ponderada</a
+                  >
+                </li>
+                <li><a href="../media/index.html" class="">Média</a></li>
+                <li><a href="../mediana/index.html" class="">Mediana</a></li>
+                <li><a href="../mmc/index.html" class="">MMC</a></li>
+                <li><a href="../moda/index.html" class="">Moda</a></li>
+                <li>
+                  <a href="../porcentagem/index.html" class="">Porcentagem</a>
+                </li>
+                <li>
+                  <a href="../regra-de-tres/index.html" class=""
+                    >Regra de Três</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../nutricao/index.html" class="">Nutrição</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../nutricao/densidade-corporal/index.html"
+                    class=""
+                    >Densidade Corporal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/gasto-energetico-diario/index.html"
+                    class=""
+                    >Gasto Energético Diário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../nutricao/imc/index.html" class="">IMC</a>
+                </li>
+                <li>
+                  <a href="../../nutricao/macronutrientes/index.html" class=""
+                    >Macronutrientes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/taxa-metabolica-basal/index.html"
+                    class=""
+                    >Taxa Metabólica Basal</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../texto/index.html" class="">Texto</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../texto/contador-de-caracteres/index.html"
+                    class=""
+                    >Contador de Caracteres</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/nuvem-de-palavras/index.html" class=""
+                    >Nuvem de Palavras</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/ordem-alfabetica/index.html" class=""
+                    >Ordem alfabética</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/palavras-chave/index.html" class=""
+                    >Palavras-chave</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../trabalhista/index.html" class="">Trabalhista</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../trabalhista/13-salario/index.html" class=""
+                    >13º Salário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/ferias/index.html" class=""
+                    >Férias</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/fgts/index.html" class="">FGTS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/horas-extras/index.html" class=""
+                    >Horas Extras</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/horas-trabalhadas/index.html"
+                    class=""
+                    >Horas Trabalhadas</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/inss/index.html" class="">INSS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/irrf/index.html" class="">IRRF</a>
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/salario-liquido/index.html"
+                    class=""
+                    >Salário Líquido</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <!--]-->
+          </ul>
+          <div class="mx-auto">
+            <a href="../../index.html"
+              ><img
+                src="../../android-chrome-192x192.png"
+                alt="Calculadora"
+                class="mx-auto"
+                width="192"
+                height="192"
+            /></a>
+          </div>
+          <div class="prose text-xs mx-auto">
+            <p>
+              Utilizamos anúncios e/ou links de afiliados para manter nosso site
+              e oferecer as calculadoras gratuitamente.
+            </p>
+            <p>
+              As calculadoras fornecida neste site são gratuitas e tem fins
+              informativos. Não nos responsabilizamos por quaisquer danos,
+              perdas ou consequências negativas resultantes do uso das
+              calculadoras. Consulte um profissional para orientação específica.
+            </p>
+          </div>
+        </footer>
+      </div>
+      <!--]-->
+    </div>
+   
+  </body>
+</html>

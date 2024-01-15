@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de Caixa d&#x27;Água</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Calculadora.app" />
+    <meta name="theme-color" content="#7ac6ff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora.app" />
+    <meta property="og:site_name" content="Calculadora.app" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../icon.png" data-h-2c9d455="" />
+    <link
+      rel="apple-touch-icon"
+      href="../../_nuxt/icons/512x512.maskable.0cdbae2f.png"
+      sizes="512x512"
+      data-h-bc1de16=""
+    />
+    <link rel="manifest" href="../../manifest.json" />
+   
+    <meta
+      name="description"
+      content="Use a nossa calculadora de caixa d'água online e estime o volume de água necessário. Saiba como escolher o tamanho ideal da caixa d'água para a sua edificação. Confira!"
+    />
+    <meta
+      name="keywords"
+      content="Calculadora de Caixa d'Água online,Como escolher o tamanho da caixa d'água,Calculadora de Caixa d'Água gratuita,Calculadora de Caixa d'Água simples e rápida,Calculadora de Caixa d'Água conforme NBR 5626,Como usar a Calculadora de Caixa d'Água,Calculadora de Caixa d'Água para planejamento da obra,Calculadora de Caixa d'Água para diferentes edificações,Calculadora de Caixa d'Água para otimizar o uso da água"
+    />
+   
+    <link rel="stylesheet" href="../../_nuxt/entry.de8cf95e.css" />
+    <style>
+      #ad-header {
+        height: 90px;
+        margin: 0 auto;
+        max-height: 90px;
+        min-height: 90px;
+        z-index: 100;
+      }
+      .ad-responsive-header {
+        height: 90px;
+        margin: 0 auto;
+        width: 950px;
+      }
+      @media (min-width: 500px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 468px;
+        }
+      }
+      @media (min-width: 800px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 728px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../assets/comunStyle.css">
+
+
+    <script>
+      "use strict";
+      const w = window,
+        de = document.documentElement,
+        knownColorSchemes = ["dark", "light"],
+        preference = window.localStorage.getItem("nuxt-color-mode") || "system";
+      let value = preference === "system" ? getColorScheme() : preference;
+      const forcedColorMode = de.getAttribute("data-color-mode-forced");
+      forcedColorMode && (value = forcedColorMode),
+        addColorScheme(value),
+        (w["__NUXT_COLOR_MODE__"] = {
+          preference,
+          value,
+          getColorScheme,
+          addColorScheme,
+          removeColorScheme,
+        });
+      function addColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList ? de.classList.add(o) : (de.className += " " + o),
+          t && de.setAttribute("data-" + t, e);
+      }
+      function removeColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList
+          ? de.classList.remove(o)
+          : (de.className = de.className.replace(new RegExp(o, "g"), "")),
+          t && de.removeAttribute("data-" + t);
+      }
+      function prefersColorScheme(e) {
+        return w.matchMedia("(prefers-color-scheme" + e + ")");
+      }
+      function getColorScheme() {
+        if (w.matchMedia && prefersColorScheme("").media !== "not all") {
+          for (const e of knownColorSchemes)
+            if (prefersColorScheme(":" + e).matches) return e;
+        }
+        return "light";
+      }
+    </script>
+    
+  </head>
+  <body>
+    <div id="__nuxt">
+      <!--[-->
+      <div class="navbar w-full p-0 sticky top-0 h-[90px]" id="ad-header">
+        <ins
+          class="adsbygoogle ad-responsive-header"
+          style="display: inline-block; height: 90px"
+          data-ad-client="ca-pub-9723141071587345"
+          data-ad-slot="1772728892"
+        ></ins>
+      </div>
+      <div class="w-full max-w-4xl flex-grow p-6 mx-auto">
+        <header class="mx-auto">
+          <div class="text-sm breadcrumbs">
+            <ul>
+              <li><a href="../../index.html" class="">Calculadora</a></li>
+              <!--[-->
+              <li><a href="../index.html" class="">Arquitetura</a></li>
+              <li>
+                <a
+                  aria-current="page"
+                  href="index.html"
+                  class="router-link-active router-link-exact-active"
+                  >Caixa d&#39;Água</a
+                >
+              </li>
+              <!--]-->
+            </ul>
+          </div>
+        </header>
+        <main>
+          <div class="prose prose-sm md:prose-md">
+            <h1>Calculadora de Caixa d&#39;Água</h1>
+          </div>
+          <!--[--><!--[-->
+          <section class="flex flex-col md:flex-row justify-center mb-8">
+            <div class="max-w-sm card flex-shrink-0 w-full shadow-2xl">
+              <div class="card-body not-prose">
+                <h2 class="card-title">Calcule o volume de água</h2>
+                <form id="calculadora-form">
+                  <!--[-->
+                  <div class="form-control">
+                    <label
+                      class="label"
+                      for="habitantes6xmkx3dze"
+                      ><span class="label-text"
+                        >Número de habitantes</span
+                      ></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="habitantes6xmkx3dze"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <label class="label" for="dias369cx49qh"
+                      ><span class="label-text">Quantidade de dias</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="dias369cx49qh"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <label
+                      class="label"
+                      for="diat2e2pzfw9"
+                      ><span class="label-text"
+                        >Consumo por habitante por dia</span
+                      ></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="diat2e2pzfw9"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        value="150"
+                        inputmode="decimal"
+                      /><span
+                        class="join-item btn btn-ghost input-bordered cursor-default"
+                        >l</span
+                      >
+                    </div>
+                    <!---->
+                  </div>
+                  <!--]-->
+                  <div class="form-control mt-6">
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-full max-w-xs"
+                      id="calcular"
+                    >
+                      <span>Calcular</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <br>
+            
+
+            <div class="prose">
+              <div class="carding stat place-items-center" id="resultado-container" style="display:none;">
+                <h2>Resultado</h2>
+                <div id="resultado-capacidade" class="stat-value">7200 litros</div>
+                <!-- Botões comentados, podem ser descomentados e estilizados conforme necessário -->
+                <h3>Detalhes</h3>
+                <p>Para calcular o volume de água, basta multiplicar o número de habitantes pelo número de dias e pelo consumo por habitante por dia.</p>
+                <div id="detalhes-calculo" class="stat-desc">Resultado = Habitantes x Dias x Consumo</div>
+              </div>
+            </div>
+
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('calculadora-form').addEventListener('submit', function (e) {
+                  e.preventDefault(); // Impede o envio padrão do formulário
+        
+                  // Obtendo valores dos inputs
+                  var numeroDeHabitantes = document.getElementById('habitantes6xmkx3dze').value;
+                  var quantidadeDeDias = document.getElementById('dias369cx49qh').value;
+                  var consumoPorHabitante = document.getElementById('diat2e2pzfw9').value;
+        
+                  // Calculando o volume necessário
+                  var volumeNecessario = numeroDeHabitantes * consumoPorHabitante * quantidadeDeDias;
+        
+                  // Exibindo o resultado
+                  console.log('Volume necessário de água: ' + volumeNecessario + ' litros');
+                  // Exibindo o resultado
+                  document.getElementById('resultado-capacidade').innerText = volumeNecessario + ' litros';
+                  document.getElementById('detalhes-calculo').innerText = 'Resultado = ' + numeroDeHabitantes + ' x ' + quantidadeDeDias + ' x ' + consumoPorHabitante;
+                  var resultadoContainer = document.getElementById('resultado-container');
+                  resultadoContainer.style.display = 'block'; // Mostra o container do resultado
+                  resultadoContainer.scrollIntoView({ behavior: 'smooth' });
+
+                });
+              });
+            </script>
+
+          </section>
+          <!----><!--]-->
+          <article class="prose">
+            <h2>
+              Calculadora de Caixa d&#39;Água: como usar e escolher o tamanho
+              ideal
+            </h2>
+            <p>
+              Uma calculadora de caixa d&#39;água é uma ferramenta online que
+              permite ao usuário estimar o volume de água necessário para
+              abastecer uma edificação, seja ela residencial ou comercial. Com
+              ela, é possível saber qual o tamanho ideal da caixa d&#39;água,
+              considerando o consumo diário de água por pessoa, o número de
+              moradores ou usuários e os dias de reserva em caso de falta de
+              água.
+            </p>
+            <p>
+              Neste artigo, vamos explicar como usar uma calculadora de caixa
+              d&#39;água, quais são os benefícios dessa ferramenta e quais são
+              os principais tipos e tamanhos de caixa d&#39;água que podem ser
+              escolhidos. Além disso, vamos apresentar algumas dicas para
+              instalar e manter a caixa d&#39;água em boas condições.
+            </p>
+            <div itemscope itemtype="https://schema.org/FAQPage">
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  O que é uma calculadora de caixa d&#39;água?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Uma calculadora de caixa d&#39;água é uma ferramenta online
+                    que permite ao usuário estimar o volume de água necessário
+                    para abastecer uma edificação, seja ela residencial ou
+                    comercial. Com ela, é possível saber qual o tamanho ideal da
+                    caixa d&#39;água, considerando o consumo diário de água por
+                    pessoa, o número de moradores ou usuários e os dias de
+                    reserva em caso de falta de água.
+                  </p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Como usar uma calculadora de caixa d&#39;água?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Para usar uma calculadora de caixa d&#39;água, basta
+                    informar três dados: o consumo diário de água por pessoa, o
+                    número de moradores ou usuários e os dias de reserva. O
+                    consumo diário de água por pessoa pode variar conforme o
+                    tipo de edificação e o padrão de uso. Por exemplo, em
+                    residências, estima-se que uma pessoa consuma em média 150
+                    litros de água por dia, enquanto que em escritórios, uma
+                    pessoa consuma em média 50 litros de água por dia. O número
+                    de moradores ou usuários corresponde à quantidade de pessoas
+                    que habitam ou frequentam a edificação diariamente ou
+                    constantemente. Os dias de reserva correspondem ao período
+                    em que a caixa d&#39;água deve garantir o abastecimento em
+                    caso de falta de água. Recomenda-se que a caixa d&#39;água
+                    tenha capacidade para pelo menos dois dias de reserva. A
+                    partir desses dados, a calculadora vai mostrar qual o volume
+                    mínimo e máximo da caixa d&#39;água adequada para a
+                    edificação.
+                  </p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Quais são os benefícios de usar uma calculadora de caixa
+                  d&#39;água?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Os benefícios de usar uma calculadora de caixa d&#39;água
+                    são:
+                  </p>
+                  <ul>
+                    <li>
+                      Ajudar no planejamento da obra, evitando comprar uma caixa
+                      d&#39;água inadequada para a demanda;
+                    </li>
+                    <li>
+                      Otimizar o uso da água, evitando desperdícios ou escassez;
+                    </li>
+                    <li>
+                      Economizar dinheiro, evitando gastos excessivos com a
+                      compra ou a manutenção da caixa d&#39;água;
+                    </li>
+                    <li>
+                      Garantir o conforto e a segurança dos moradores ou
+                      usuários, evitando transtornos com a falta ou a
+                      contaminação da água.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Quais são os principais tipos e tamanhos de caixa d&#39;água?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Os principais tipos de caixa d&#39;água são:
+                  </p>
+                  <ul>
+                    <li>
+                      Caixa d&#39;água de polietileno: é o tipo mais comum e
+                      mais barato, feito de plástico resistente e leve. Pode ter
+                      formatos variados, como cilíndrico, retangular ou
+                      quadrado. Tem capacidade para armazenar de 100 a 5.000
+                      litros de água;
+                    </li>
+                    <li>
+                      Caixa d&#39;água de fibra de vidro: é um tipo mais
+                      resistente e durável, feito de um material reforçado e
+                      impermeável. Pode ter formatos variados, como cilíndrico,
+                      retangular ou quadrado. Tem capacidade para armazenar de
+                      500 a 10.000 litros de água;
+                    </li>
+                    <li>
+                      Caixa d&#39;água de aço inox: é um tipo mais sofisticado e
+                      higiênico, feito de um material nobre e anticorrosivo.
+                      Pode ter formatos variados, como cilíndrico, retangular ou
+                      quadrado. Tem capacidade para armazenar de 500 a 20.000
+                      litros de água;
+                    </li>
+                    <li>
+                      Caixa d&#39;água de concreto: é um tipo mais robusto e
+                      estável, feito de um material sólido e pesado. Geralmente
+                      tem formato cilíndrico e é instalado no subsolo ou no
+                      solo. Tem capacidade para armazenar de 5.000 a 100.000
+                      litros de água.
+                    </li>
+                  </ul>
+                  <p>
+                    Os tamanhos de caixa d&#39;água podem variar conforme a
+                    capacidade de armazenamento, o tipo e o formato da caixa. Em
+                    geral, quanto maior a capacidade, maior o tamanho da caixa.
+                    Além disso, o tipo e o formato da caixa podem influenciar
+                    nas dimensões da altura, do diâmetro ou do comprimento e da
+                    largura da caixa. Por exemplo, uma caixa d&#39;água
+                    cilíndrica de polietileno com capacidade para 500 litros tem
+                    altura de 86 cm e diâmetro de 110 cm, enquanto que uma caixa
+                    d&#39;água retangular de fibra de vidro com capacidade para
+                    500 litros tem altura de 60 cm, comprimento de 120 cm e
+                    largura de 80 cm.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p>
+              Para escolher o tamanho ideal da caixa d&#39;água, é importante
+              considerar alguns fatores, como:
+            </p>
+            <ul>
+              <li>
+                A demanda de água: qual o consumo diário de água por pessoa,
+                qual o número de moradores ou usuários e qual o período de
+                reserva;
+              </li>
+              <li>
+                O espaço disponível: qual o local onde a caixa d&#39;água será
+                instalada, qual o tamanho e a forma do espaço e qual a estrutura
+                necessária para suportar o peso da caixa;
+              </li>
+              <li>
+                O custo-benefício: qual o preço da caixa d&#39;água, qual a
+                durabilidade e a qualidade do material e qual a facilidade de
+                instalação e manutenção.
+              </li>
+            </ul>
+            <p>
+              Além disso, é recomendável usar uma calculadora de caixa
+              d&#39;água para estimar o volume adequado para a edificação, bem
+              como pesquisar e comparar as opções disponíveis no mercado. Também
+              é aconselhável seguir as normas técnicas da ABNT (Associação
+              Brasileira de Normas Técnicas) para garantir a segurança e a
+              eficiência da instalação e do uso da caixa d&#39;água.
+            </p>
+            <h3>Referências</h3>
+            <ul>
+              <li>
+                ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5626: Instalação
+                predial de água fria. Rio de Janeiro, 1998.
+              </li>
+              <li>
+                ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14800:
+                Reservatório vertical cilíndrico em plástico reforçado com fibra
+                de vidro para instalação enterrada - Requisitos e métodos
+                ensaio. Rio de Janeiro, 2010.
+              </li>
+            </ul>
+          </article>
+          <!--]-->
+        </main>
+        <footer class="mt-8">
+          <ul class="menu sm:menu-horizontal xs:min-w-max rounded-box mx-auto">
+            <!--[-->
+            <li>
+              <a href="../index.html" class="">Arquitetura</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    aria-current="page"
+                    href="index.html"
+                    class="router-link-active router-link-exact-active"
+                    >Caixa d&#39;Água</a
+                  >
+                </li>
+                <li>
+                  <a href="../inclinacao-de-rampa/index.html" class=""
+                    >Inclinação de Rampa</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../datas/index.html" class="">Datas</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../datas/adicionar-dias-em-uma-data/index.html"
+                    class=""
+                    >Adicionar dias em uma data</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/diferenca-entre-datas/index.html"
+                    class=""
+                    >Diferença entre Datas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/remover-dias-de-uma-data/index.html"
+                    class=""
+                    >Remover dias em uma data</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../financeiro/index.html" class="">Financeiro</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../financeiro/cheque-especial/index.html" class=""
+                    >Cheque Especial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-consignado/index.html"
+                    class=""
+                    >Empréstimo Consignado</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-pessoal/index.html"
+                    class=""
+                    >Empréstimo Pessoal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/financiamento-veiculos/index.html"
+                    class=""
+                    >Financiamento de Veículos</a
+                  >
+                </li>
+                <li>
+                  <a href="../../financeiro/juros-compostos/index.html" class=""
+                    >Juros Compostos</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../matematica/index.html" class="">Matemática</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../matematica/area-do-cilindro/index.html"
+                    class=""
+                    >Área do Cilindro</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/area-do-circulo/index.html" class=""
+                    >Área do Círculo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/area-do-retangulo/index.html"
+                    class=""
+                    >Área do Retângulo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/area-do-triangulo/index.html"
+                    class=""
+                    >Área do Triângulo</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/bhaskara/index.html" class=""
+                    >Bhaskara</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/desvio-padrao/index.html" class=""
+                    >Desvio Padrão</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/equacao-segundo-grau/index.html"
+                    class=""
+                    >Equação de Segundo Grau</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/mdc/index.html" class="">MDC</a>
+                </li>
+                <li>
+                  <a href="../../matematica/media-ponderada/index.html" class=""
+                    >Média Ponderada</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/media/index.html" class="">Média</a>
+                </li>
+                <li>
+                  <a href="../../matematica/mediana/index.html" class=""
+                    >Mediana</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/mmc/index.html" class="">MMC</a>
+                </li>
+                <li>
+                  <a href="../../matematica/moda/index.html" class="">Moda</a>
+                </li>
+                <li>
+                  <a href="../../matematica/porcentagem/index.html" class=""
+                    >Porcentagem</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/regra-de-tres/index.html" class=""
+                    >Regra de Três</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../nutricao/index.html" class="">Nutrição</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../nutricao/densidade-corporal/index.html"
+                    class=""
+                    >Densidade Corporal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/gasto-energetico-diario/index.html"
+                    class=""
+                    >Gasto Energético Diário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../nutricao/imc/index.html" class="">IMC</a>
+                </li>
+                <li>
+                  <a href="../../nutricao/macronutrientes/index.html" class=""
+                    >Macronutrientes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/taxa-metabolica-basal/index.html"
+                    class=""
+                    >Taxa Metabólica Basal</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../texto/index.html" class="">Texto</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../texto/contador-de-caracteres/index.html"
+                    class=""
+                    >Contador de Caracteres</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/nuvem-de-palavras/index.html" class=""
+                    >Nuvem de Palavras</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/ordem-alfabetica/index.html" class=""
+                    >Ordem alfabética</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/palavras-chave/index.html" class=""
+                    >Palavras-chave</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../trabalhista/index.html" class="">Trabalhista</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../trabalhista/13-salario/index.html" class=""
+                    >13º Salário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/ferias/index.html" class=""
+                    >Férias</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/fgts/index.html" class="">FGTS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/horas-extras/index.html" class=""
+                    >Horas Extras</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/horas-trabalhadas/index.html"
+                    class=""
+                    >Horas Trabalhadas</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/inss/index.html" class="">INSS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/irrf/index.html" class="">IRRF</a>
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/salario-liquido/index.html"
+                    class=""
+                    >Salário Líquido</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <!--]-->
+          </ul>
+          <div class="mx-auto">
+            <a href="../../index.html"
+              ><img
+                src="../../android-chrome-192x192.png"
+                alt="Calculadora"
+                class="mx-auto"
+                width="192"
+                height="192"
+            /></a>
+          </div>
+          <div class="prose text-xs mx-auto">
+            <p>
+              Utilizamos anúncios e/ou links de afiliados para manter nosso site
+              e oferecer as calculadoras gratuitamente.
+            </p>
+            <p>
+              As calculadoras fornecida neste site são gratuitas e tem fins
+              informativos. Não nos responsabilizamos por quaisquer danos,
+              perdas ou consequências negativas resultantes do uso das
+              calculadoras. Consulte um profissional para orientação específica.
+            </p>
+          </div>
+        </footer>
+      </div>
+      <!--]-->
+    </div>
+
+   
+
+
+
+
+  </body>
+</html>

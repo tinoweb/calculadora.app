@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de Inclinação de Rampa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Calculadora.app" />
+    <meta name="theme-color" content="#7ac6ff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora.app" />
+    <meta property="og:site_name" content="Calculadora.app" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../icon.png" data-h-2c9d455="" />
+    <link
+      rel="apple-touch-icon"
+      href="../../_nuxt/icons/512x512.maskable.0cdbae2f.png"
+      sizes="512x512"
+      data-h-bc1de16=""
+    />
+    <link rel="manifest" href="../../manifest.json" />
+    <script
+      defer=""
+      crossorigin="anonymous"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9723141071587345"
+      data-h-6f4c83b=""
+    ></script>
+    <script data-h-bc50e5a="">
+      if (!window.__abg_called) {
+        window.adsbygoogle = window.adsbygoogle || [];
+        adsbygoogle.pauseAdRequests = 0;
+        adsbygoogle.push({
+          google_ad_client: "ca-pub-9723141071587345",
+          overlays: { bottom: false },
+        });
+        window.__abg_called = true;
+      }
+    </script>
+    <meta
+      name="description"
+      content="Calcule a inclinação ideal de uma rampa de forma simples e rápida. Use a nossa calculadora de inclinação de rampa online e saiba se a sua rampa está adequada aos padrões de acessibilidade. Acesse já!"
+    />
+    <meta
+      name="keywords"
+      content="Calculadora de Inclinação de Rampa online,Como calcular a inclinação de uma rampa,Inclinação de rampa de acessibilidade,Calculadora de Inclinação de Rampa gratuita,Calculadora de Inclinação de Rampa simples e rápida,Calculadora de Inclinação de Rampa conforme NBR 9050,Como usar a Calculadora de Inclinação de Rampa,Calculadora de Inclinação de Rampa para projetos e construções,Calculadora de Inclinação de Rampa para diferentes situações,Fórmula matemática para calcular a inclinação da rampa,Calculadora de Inclinação de Rampa para segurança e conforto"
+    />
+    <!-- <link
+      rel="preload"
+      as="fetch"
+      crossorigin="anonymous"
+      href="_payload.json"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/entry.109cc120.js"
+    />
+    <link rel="preload" as="style" href="../../_nuxt/entry.de8cf95e.css" />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/inclinacao-de-rampa.a2e42e82.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/FormInputNumber.1a90f785.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/FormInput.78c786b0.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/useModelData.f512d420.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/FormRadio.9d7887a0.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/Stats.eb4b5505.js"
+    />
+    <link
+      rel="modulepreload"
+      as="script"
+      crossorigin
+      href="../../_nuxt/Share.6aba5fb6.js"
+    />
+    <link
+      rel="prefetch"
+      as="script"
+      crossorigin
+      href="../../_nuxt/error-component.58156c9c.js"
+    /> -->
+    <link rel="stylesheet" href="../../assets/comunStyle.css">
+    <link rel="stylesheet" href="../../_nuxt/entry.de8cf95e.css" />
+    <style>
+      #ad-header {
+        height: 90px;
+        margin: 0 auto;
+        max-height: 90px;
+        min-height: 90px;
+        z-index: 100;
+      }
+      .ad-responsive-header {
+        height: 90px;
+        margin: 0 auto;
+        width: 950px;
+      }
+      @media (min-width: 500px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 468px;
+        }
+      }
+      @media (min-width: 800px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 728px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../assets/comunStyle.css">
+    <script>
+      "use strict";
+      const w = window,
+        de = document.documentElement,
+        knownColorSchemes = ["dark", "light"],
+        preference = window.localStorage.getItem("nuxt-color-mode") || "system";
+      let value = preference === "system" ? getColorScheme() : preference;
+      const forcedColorMode = de.getAttribute("data-color-mode-forced");
+      forcedColorMode && (value = forcedColorMode),
+        addColorScheme(value),
+        (w["__NUXT_COLOR_MODE__"] = {
+          preference,
+          value,
+          getColorScheme,
+          addColorScheme,
+          removeColorScheme,
+        });
+      function addColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList ? de.classList.add(o) : (de.className += " " + o),
+          t && de.setAttribute("data-" + t, e);
+      }
+      function removeColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList
+          ? de.classList.remove(o)
+          : (de.className = de.className.replace(new RegExp(o, "g"), "")),
+          t && de.removeAttribute("data-" + t);
+      }
+      function prefersColorScheme(e) {
+        return w.matchMedia("(prefers-color-scheme" + e + ")");
+      }
+      function getColorScheme() {
+        if (w.matchMedia && prefersColorScheme("").media !== "not all") {
+          for (const e of knownColorSchemes)
+            if (prefersColorScheme(":" + e).matches) return e;
+        }
+        return "light";
+      }
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("/sw.js")
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div id="__nuxt">
+      <!--[-->
+      <div class="navbar w-full p-0 sticky top-0 h-[90px]" id="ad-header">
+        <ins
+          class="adsbygoogle ad-responsive-header"
+          style="display: inline-block; height: 90px"
+          data-ad-client="ca-pub-9723141071587345"
+          data-ad-slot="1772728892"
+        ></ins>
+      </div>
+      <div class="w-full max-w-4xl flex-grow p-6 mx-auto">
+        <header class="mx-auto">
+          <div class="text-sm breadcrumbs">
+            <ul>
+              <li><a href="../../index.html" class="">Calculadora</a></li>
+              <!--[-->
+              <li><a href="../index.html" class="">Arquitetura</a></li>
+              <li>
+                <a
+                  aria-current="page"
+                  href="index.html"
+                  class="router-link-active router-link-exact-active"
+                  >Inclinação de Rampa</a
+                >
+              </li>
+              <!--]-->
+            </ul>
+          </div>
+        </header>
+        <main>
+          <div class="prose prose-sm md:prose-md">
+            <h1>Calculadora de Inclinação de Rampa</h1>
+          </div>
+          <!--[--><!--[-->
+          <section class="flex flex-col md:flex-row justify-center mb-8">
+            <div class="max-w-sm card flex-shrink-0 w-full shadow-2xl">
+              <div class="card-body not-prose">
+                <h2 class="card-title">Calcule a inclinação de uma rampa</h2>
+                <form id="calculadora-form">
+                  <!--[-->
+                  <div class="form-control">
+                    <label class="label" for="input-alturapd0ed9y26"
+                      ><span class="label-text">Altura</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-alturapd0ed9y26"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        step="any"
+                        inputmode="decimal"
+                      /><span
+                        class="join-item btn btn-ghost input-bordered cursor-default"
+                        >m</span
+                      >
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <div class="label">
+                      <span class="label-text">Informar comprimento</span>
+                    </div>
+                    <!--[-->
+                    <div class="flex items-center">
+                      <input
+                        id="input-informar-comprimento4sj6qfgg0Calcular"
+                        name="input-informar-comprimento4sj6qfgg0"
+                        type="radio"
+                        class="radio m-1"
+                        checked
+                        value="false"
+                        placeholder=""
+                      /><label
+                        for="input-informar-comprimento4sj6qfgg0Calcular"
+                        class="cursor-pointer"
+                        >Calcular segundo NBR 9050</label
+                      >
+                    </div>
+                    <div class="flex items-center">
+                      <input
+                        id="input-informar-comprimento4sj6qfgg0Informar comprimento"
+                        name="input-informar-comprimento4sj6qfgg0"
+                        type="radio"
+                        class="radio m-1"
+                        value="true"
+                        placeholder=""
+                      /><label
+                        for="input-informar-comprimento4sj6qfgg0Informar comprimento"
+                        class="cursor-pointer"
+                        >Informar comprimento</label
+                      >
+                    </div>
+                    <!--]--><!---->
+                  </div>
+                  <!----><!--]-->
+                  <div class="form-control mt-6">
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-full max-w-xs"
+                      id="calcular"
+                    >
+                      <span>Calcular</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <div class="prose">
+              <div class="carding stat place-items-center" id="resultado-container" style="display:none;">
+                <h2>Resultado</h2>
+                <div id="resultado-inclinacao" class="stat-value">Inclinação: -- %</div>
+                <div id="resultado-comprimento" class="stat-value">Comprimento Mínimo: -- m</div>
+                <h3>Detalhes</h3>
+                <p id="detalhes-calculo">Preencha os dados e clique em calcular para ver o resultado.</p>
+              </div>
+            </div>
+            
+            
+
+
+
+
+
+            <script>
+              // document.addEventListener('DOMContentLoaded', function () {
+              //   document.getElementById('calculadora-form').addEventListener('submit', function (e) {
+              //     e.preventDefault(); // Impede o envio padrão do formulário
+
+              //     // Obtendo valores dos inputs
+              //     var altura = document.getElementById('input-alturapd0ed9y26').value;
+              //     var calcularSegundoNBR = document.getElementById('input-informar-comprimento4sj6qfgg0Calcular').checked;
+                  
+              //     // Se a opção de calcular segundo a NBR 9050 estiver marcada
+              //     if (calcularSegundoNBR) {
+              //       // Defina aqui a inclinação máxima segundo a NBR 9050 para a altura informada
+              //       // Este é um valor de exemplo e deve ser ajustado conforme a norma
+              //       var inclinacaoMaxima = 0.0833; // 8.33%
+              //       var comprimentoMinimo = altura / inclinacaoMaxima;
+                    
+              //       // Exibindo o resultado
+              //       // Você deve criar elementos no HTML para exibir estes resultados
+              //       alert('Comprimento mínimo segundo NBR 9050: ' + comprimentoMinimo.toFixed(2) + 'm');
+              //     } else {
+              //       // Se a opção de informar comprimento estiver marcada
+              //       // Você deve ter um input para que o usuário possa inserir o valor do comprimento
+              //       var comprimento = document.getElementById('input-comprimento').value; // ID do input de comprimento
+              //       var inclinacao = (altura / comprimento) * 100;
+                    
+              //       // Exibindo o resultado
+              //       // Você deve criar elementos no HTML para exibir estes resultados
+              //       alert('Inclinação da rampa: ' + inclinacao.toFixed(2) + '%');
+              //     }
+
+              //     // Aqui você pode adicionar o código para atualizar a página com os resultados
+              //     // E adicionar o scroll suave até o resultado como feito anteriormente
+              //   });
+              // });
+
+              document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('calculadora-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Impede o envio padrão do formulário
+
+    // Obtendo valores dos inputs
+    var altura = parseFloat(document.getElementById('input-alturapd0ed9y26').value);
+    var calcularSegundoNBR = document.getElementById('input-informar-comprimento4sj6qfgg0Calcular').checked;
+    
+    // Elementos de resultado no DOM
+    var resultadoInclinacao = document.getElementById('resultado-inclinacao');
+    var resultadoComprimento = document.getElementById('resultado-comprimento');
+    var detalhesCalculo = document.getElementById('detalhes-calculo');
+    var resultadoContainer = document.getElementById('resultado-container');
+
+    if (calcularSegundoNBR) {
+      // Defina aqui a inclinação máxima segundo a NBR 9050 para a altura informada
+      var inclinacaoMaxima = 0.0833; // 8.33%
+      var comprimentoMinimo = altura / inclinacaoMaxima;
+      
+      // Atualizando o resultado
+      resultadoComprimento.textContent = `Comprimento Mínimo: ${comprimentoMinimo.toFixed(2)} m`;
+      resultadoInclinacao.textContent = `Inclinação segundo NBR 9050: ${(inclinacaoMaxima * 100).toFixed(2)} %`;
+      detalhesCalculo.textContent = `Para uma altura de ${altura} m, o comprimento mínimo segundo NBR 9050 é ${comprimentoMinimo.toFixed(2)} m.`;
+    } else {
+      // Se a opção de informar comprimento estiver marcada
+      var comprimento = parseFloat(document.getElementById('input-comprimento').value); // Adicione o input de comprimento no seu HTML
+      var inclinacao = (altura / comprimento) * 100;
+      
+      // Atualizando o resultado
+      resultadoInclinacao.textContent = `Inclinação da rampa: ${inclinacao.toFixed(2)} %`;
+      resultadoComprimento.textContent = `Comprimento informado: ${comprimento.toFixed(2)} m`;
+      detalhesCalculo.textContent = `A inclinação da rampa para uma altura de ${altura} m e um comprimento de ${comprimento.toFixed(2)} m é de ${inclinacao.toFixed(2)}%.`;
+    }
+
+    // Mostra o container do resultado e faz scroll até ele
+    resultadoContainer.style.display = 'block';
+    resultadoContainer.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+
+            </script>
+
+          </section>
+          <!----><!--]-->
+          <article class="prose">
+            <h2>
+              Calculadora de Inclinação de Rampa: como usar e aplicar na
+              acessibilidade
+            </h2>
+            <p>
+              Uma calculadora de inclinação de rampa é uma ferramenta online que
+              permite ao usuário determinar a inclinação de uma rampa, ou seja,
+              a relação entre a altura e o comprimento da rampa. Com ela, é
+              possível saber se uma rampa está adequada aos padrões de
+              acessibilidade, bem como projetar e construir rampas seguras e
+              confortáveis para pessoas com mobilidade reduzida.
+            </p>
+            <p>
+              Neste artigo, vamos explicar como usar uma calculadora de
+              inclinação de rampa, quais são os benefícios dessa ferramenta e
+              quais são as normas e os parâmetros para o cálculo e a execução de
+              rampas de acessibilidade. Além disso, vamos apresentar algumas
+              dicas para escolher o tipo e o material da rampa, bem como para
+              fazer a sua manutenção.
+            </p>
+            <div itemscope itemtype="https://schema.org/FAQPage">
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  O que é uma calculadora de inclinação de rampa?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Uma calculadora de inclinação de rampa é uma ferramenta
+                    online que permite ao usuário determinar a inclinação de uma
+                    rampa, ou seja, a relação entre a altura e o comprimento da
+                    rampa. Com ela, é possível saber se uma rampa está adequada
+                    aos padrões de acessibilidade, bem como projetar e construir
+                    rampas seguras e confortáveis para pessoas com mobilidade
+                    reduzida.
+                  </p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Como usar uma calculadora de inclinação de rampa?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Para usar uma calculadora de inclinação de rampa, basta
+                    informar dois dados: a altura e o comprimento da rampa. A
+                    altura corresponde à distância vertical entre o início e o
+                    fim da rampa. O comprimento corresponde à distância
+                    horizontal entre o início e o fim da rampa. A partir desses
+                    dados, a calculadora vai mostrar qual é a inclinação da
+                    rampa, expressa em porcentagem ou em graus. A fórmula
+                    matemática para calcular a inclinação da rampa é:
+                  </p>
+                  <p>
+                    <img
+                      src="https://latex.codecogs.com/png.latex?\dpi{150}&amp;space;i=\frac{h\times&amp;space;100}{c}"
+                      title="i=\frac{h\times 100}{c}"
+                    />
+                  </p>
+                  <p>
+                    Onde i é a inclinação, h é a altura e c é o comprimento da
+                    rampa.
+                  </p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Quais são os benefícios de usar uma calculadora de inclinação
+                  de rampa?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Os benefícios de usar uma calculadora de inclinação de rampa
+                    são:
+                  </p>
+                  <ul>
+                    <li>
+                      Ajudar no planejamento e no dimensionamento de rampas,
+                      evitando erros ou desperdícios;
+                    </li>
+                    <li>
+                      Garantir a conformidade com as normas técnicas e os
+                      critérios de acessibilidade, evitando multas ou
+                      penalidades;
+                    </li>
+                    <li>
+                      Promover a segurança e o conforto dos usuários das rampas,
+                      evitando acidentes ou dificuldades;
+                    </li>
+                    <li>
+                      Facilitar a comparação entre diferentes opções de rampas,
+                      analisando as vantagens e desvantagens de cada uma.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Quais são as normas e os parâmetros para o cálculo e a
+                  execução de rampas de acessibilidade?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    As normas e os parâmetros para o cálculo e a execução de
+                    rampas de acessibilidade são estabelecidos pela ABNT
+                    (Associação Brasileira de Normas Técnicas), por meio da NBR
+                    9050. Essa norma define os requisitos e as recomendações
+                    para a elaboração de projetos, construção, instalação e
+                    adaptação de edificações, mobiliário, espaços e equipamentos
+                    urbanos às condições de acessibilidade. Segundo a NBR 9050,
+                    as rampas de acessibilidade devem atender aos seguintes
+                    critérios:
+                  </p>
+                  <ul>
+                    <li>
+                      A inclinação máxima deve ser de 8,33%, ou seja, para cada
+                      metro de comprimento, a altura deve ser de no máximo 8,33
+                      centímetros;
+                    </li>
+                    <li>
+                      O comprimento máximo de cada segmento de rampa deve ser de
+                      9 metros, com patamares intermediários de no mínimo 1,20
+                      metro de extensão;
+                    </li>
+                    <li>
+                      A largura mínima deve ser de 1,20 metro, com faixas
+                      laterais de alerta e proteção;
+                    </li>
+                    <li>
+                      A superfície deve ser antiderrapante, regular, contínua e
+                      sem obstáculos;
+                    </li>
+                    <li>
+                      As rampas devem ter corrimãos em ambos os lados, com
+                      altura entre 0,92 metro e 1,05 metro;
+                    </li>
+                    <li>
+                      As rampas devem ter sinalização tátil e visual adequada.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p>
+              Para escolher o tipo e o material da rampa, é importante
+              considerar alguns fatores, como:
+            </p>
+            <ul>
+              <li>
+                A finalidade da rampa: qual o uso previsto da rampa, qual o
+                público-alvo e qual o nível de acessibilidade desejado;
+              </li>
+              <li>
+                O local da rampa: qual o espaço disponível para a instalação da
+                rampa, qual o tipo de solo e qual o clima da região;
+              </li>
+              <li>
+                O custo-benefício da rampa: qual o preço do material da rampa,
+                qual a durabilidade e a resistência do material e qual a
+                facilidade de manutenção da rampa.
+              </li>
+            </ul>
+            <p>Alguns exemplos de tipos e materiais de rampas são:</p>
+            <ul>
+              <li>
+                Rampa fixa: é uma rampa permanente, que faz parte da estrutura
+                da edificação. Pode ser feita de concreto, alvenaria, madeira ou
+                metal. É indicada para locais onde há necessidade constante de
+                acessibilidade;
+              </li>
+              <li>
+                Rampa móvel: é uma rampa temporária, que pode ser removida ou
+                deslocada conforme a necessidade. Pode ser feita de metal,
+                plástico ou borracha. É indicada para locais onde há necessidade
+                ocasional ou emergencial de acessibilidade;
+              </li>
+              <li>
+                Rampa modular: é uma rampa composta por módulos pré-fabricados,
+                que podem ser montados e desmontados facilmente. Pode ser feita
+                de metal ou plástico. É indicada para locais onde há necessidade
+                variável ou adaptável de acessibilidade.
+              </li>
+            </ul>
+            <p>
+              Para fazer a manutenção da rampa, é importante seguir algumas
+              dicas, como:
+            </p>
+            <ul>
+              <li>
+                Verificar periodicamente as condições da superfície da rampa,
+                corrigindo possíveis irregularidades, rachaduras ou desgastes;
+              </li>
+              <li>
+                Limpar regularmente a rampa com água e sabão neutro, removendo
+                possíveis sujeiras, manchas ou resíduos;
+              </li>
+              <li>
+                Aplicar produtos específicos para proteger e conservar o
+                material da rampa, conforme as orientações do fabricante;
+              </li>
+              <li>
+                Revisar periodicamente os elementos complementares da rampa,
+                como corrimãos, sinalização e iluminação.
+              </li>
+            </ul>
+            <h3>Referências</h3>
+            <ul>
+              <li>
+                ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9050:
+                Acessibilidade a edificações, mobiliário, espaços e equipamentos
+                urbanos. Rio de Janeiro, 2015.
+              </li>
+            </ul>
+          </article>
+          <!--]-->
+        </main>
+        <footer class="mt-8">
+          <ul class="menu sm:menu-horizontal xs:min-w-max rounded-box mx-auto">
+            <!--[-->
+            <li>
+              <a href="../index.html" class="">Arquitetura</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../caixa-dagua/index.html" class=""
+                    >Caixa d&#39;Água</a
+                  >
+                </li>
+                <li>
+                  <a
+                    aria-current="page"
+                    href="index.html"
+                    class="router-link-active router-link-exact-active"
+                    >Inclinação de Rampa</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../datas/index.html" class="">Datas</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../datas/adicionar-dias-em-uma-data/index.html"
+                    class=""
+                    >Adicionar dias em uma data</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/diferenca-entre-datas/index.html"
+                    class=""
+                    >Diferença entre Datas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/remover-dias-de-uma-data/index.html"
+                    class=""
+                    >Remover dias em uma data</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../financeiro/index.html" class="">Financeiro</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../financeiro/cheque-especial/index.html" class=""
+                    >Cheque Especial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-consignado/index.html"
+                    class=""
+                    >Empréstimo Consignado</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-pessoal/index.html"
+                    class=""
+                    >Empréstimo Pessoal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/financiamento-veiculos/index.html"
+                    class=""
+                    >Financiamento de Veículos</a
+                  >
+                </li>
+                <li>
+                  <a href="../../financeiro/juros-compostos/index.html" class=""
+                    >Juros Compostos</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../matematica/index.html" class="">Matemática</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../matematica/area-do-cilindro/index.html"
+                    class=""
+                    >Área do Cilindro</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/area-do-circulo/index.html" class=""
+                    >Área do Círculo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/area-do-retangulo/index.html"
+                    class=""
+                    >Área do Retângulo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/area-do-triangulo/index.html"
+                    class=""
+                    >Área do Triângulo</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/bhaskara/index.html" class=""
+                    >Bhaskara</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/desvio-padrao/index.html" class=""
+                    >Desvio Padrão</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../matematica/equacao-segundo-grau/index.html"
+                    class=""
+                    >Equação de Segundo Grau</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/mdc/index.html" class="">MDC</a>
+                </li>
+                <li>
+                  <a href="../../matematica/media-ponderada/index.html" class=""
+                    >Média Ponderada</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/media/index.html" class="">Média</a>
+                </li>
+                <li>
+                  <a href="../../matematica/mediana/index.html" class=""
+                    >Mediana</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/mmc/index.html" class="">MMC</a>
+                </li>
+                <li>
+                  <a href="../../matematica/moda/index.html" class="">Moda</a>
+                </li>
+                <li>
+                  <a href="../../matematica/porcentagem/index.html" class=""
+                    >Porcentagem</a
+                  >
+                </li>
+                <li>
+                  <a href="../../matematica/regra-de-tres/index.html" class=""
+                    >Regra de Três</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../nutricao/index.html" class="">Nutrição</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../nutricao/densidade-corporal/index.html"
+                    class=""
+                    >Densidade Corporal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/gasto-energetico-diario/index.html"
+                    class=""
+                    >Gasto Energético Diário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../nutricao/imc/index.html" class="">IMC</a>
+                </li>
+                <li>
+                  <a href="../../nutricao/macronutrientes/index.html" class=""
+                    >Macronutrientes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/taxa-metabolica-basal/index.html"
+                    class=""
+                    >Taxa Metabólica Basal</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../texto/index.html" class="">Texto</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../texto/contador-de-caracteres/index.html"
+                    class=""
+                    >Contador de Caracteres</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/nuvem-de-palavras/index.html" class=""
+                    >Nuvem de Palavras</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/ordem-alfabetica/index.html" class=""
+                    >Ordem alfabética</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/palavras-chave/index.html" class=""
+                    >Palavras-chave</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../trabalhista/index.html" class="">Trabalhista</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../trabalhista/13-salario/index.html" class=""
+                    >13º Salário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/ferias/index.html" class=""
+                    >Férias</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/fgts/index.html" class="">FGTS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/horas-extras/index.html" class=""
+                    >Horas Extras</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/horas-trabalhadas/index.html"
+                    class=""
+                    >Horas Trabalhadas</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/inss/index.html" class="">INSS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/irrf/index.html" class="">IRRF</a>
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/salario-liquido/index.html"
+                    class=""
+                    >Salário Líquido</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <!--]-->
+          </ul>
+          <div class="mx-auto">
+            <a href="../../index.html"
+              ><img
+                src="../../android-chrome-192x192.png"
+                alt="Calculadora"
+                class="mx-auto"
+                width="192"
+                height="192"
+            /></a>
+          </div>
+          <div class="prose text-xs mx-auto">
+            <p>
+              Utilizamos anúncios e/ou links de afiliados para manter nosso site
+              e oferecer as calculadoras gratuitamente.
+            </p>
+            <p>
+              As calculadoras fornecida neste site são gratuitas e tem fins
+              informativos. Não nos responsabilizamos por quaisquer danos,
+              perdas ou consequências negativas resultantes do uso das
+              calculadoras. Consulte um profissional para orientação específica.
+            </p>
+          </div>
+        </footer>
+      </div>
+      <!--]-->
+    </div>
+
+    <script
+      type="application/json"
+      id="__NUXT_DATA__"
+      data-ssr="true"
+      data-src="/arquitetura/inclinacao-de-rampa/_payload.json"
+    >
+      [
+        { "state": 1, "_errors": 7, "serverRendered": 5, "prerenderedAt": 9 },
+        ["Reactive", 2],
+        { "$scolor-mode": 3 },
+        { "preference": 4, "value": 4, "unknown": 5, "forced": 6 },
+        "system",
+        true,
+        false,
+        ["Reactive", 8],
+        {},
+        1704210071726
+      ]
+    </script>
+
+    <script>
+      window.__NUXT__ = {};
+      window.__NUXT__.config = {
+        public: {
+          "google-adsense": {
+            tag: "adsbygoogle",
+            pageLevelAds: false,
+            includeQuery: false,
+            analyticsUacct: "",
+            analyticsDomainName: "",
+            overlayBottom: false,
+            test: false,
+            onPageLoad: false,
+            pauseOnLoad: false,
+            id: "ca-pub-9723141071587345",
+          },
+          gtm: {
+            devtools: true,
+            id: "GTM-KWXRWC7",
+            enabled: true,
+            enableRouterSync: true,
+            debug: false,
+          },
+          pwaManifest: {
+            name: "Calculadora.app",
+            short_name: "Calculadora.app",
+            description: "Calculadora.app",
+            lang: "pt",
+            start_url: "/",
+            display: "standalone",
+            background_color: "#ffffff",
+            theme_color: "#7ac6ff",
+            icons: [
+              {
+                src: "/icon.png",
+                sizes: "512x512",
+                type: "image/png",
+                purpose: "any",
+              },
+              {
+                src: "/icon.png",
+                sizes: "512x512",
+                type: "image/png",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/64x64.0cdbae2f.png",
+                type: "image/png",
+                sizes: "64x64",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/64x64.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "64x64",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/120x120.0cdbae2f.png",
+                type: "image/png",
+                sizes: "120x120",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/120x120.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "120x120",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/144x144.0cdbae2f.png",
+                type: "image/png",
+                sizes: "144x144",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/144x144.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "144x144",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/152x152.0cdbae2f.png",
+                type: "image/png",
+                sizes: "152x152",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/152x152.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "152x152",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/192x192.0cdbae2f.png",
+                type: "image/png",
+                sizes: "192x192",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/192x192.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "192x192",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/384x384.0cdbae2f.png",
+                type: "image/png",
+                sizes: "384x384",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/384x384.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "384x384",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/512x512.0cdbae2f.png",
+                type: "image/png",
+                sizes: "512x512",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/512x512.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "512x512",
+                purpose: "maskable",
+              },
+            ],
+            orientation: "portrait",
+          },
+        },
+        app: { baseURL: "/", buildAssetsDir: "/_nuxt/", cdnURL: "" },
+      };
+    </script>
+
+    <script
+      type="module"
+      src="../../_nuxt/entry.109cc120.js"
+      crossorigin
+    ></script>
+
+    <script>
+      (function () {
+        const w = window;
+        w._$delayHydration = (() => {
+          if (!("requestIdleCallback" in w) || !("requestAnimationFrame" in w))
+            return new Promise((resolve) => resolve("not supported"));
+          function eventListeners() {
+            const c = new AbortController();
+            const p = new Promise((resolve) => {
+              const hydrateOnEvents =
+                "mousemove,scroll,keydown,click,touchstart,wheel".split(",");
+              function handler(e) {
+                hydrateOnEvents.forEach((e2) =>
+                  w.removeEventListener(e2, handler)
+                );
+                requestAnimationFrame(() => resolve(e));
+              }
+              hydrateOnEvents.forEach((e) => {
+                w.addEventListener(e, handler, {
+                  capture: true,
+                  once: true,
+                  passive: true,
+                  signal: c.signal,
+                });
+              });
+            });
+            return { c: () => c.abort(), p };
+          }
+          function idleListener() {
+            let id;
+            const p = new Promise((resolve) => {
+              const isMobile = w.innerWidth < 640;
+              const timeout = isMobile
+                ? Number.parseInt("5000")
+                : Number.parseInt("4000");
+              const timeoutDelay = () =>
+                setTimeout(
+                  () => requestAnimationFrame(() => resolve("timeout")),
+                  timeout
+                );
+              id = w.requestIdleCallback(timeoutDelay, {
+                timeout: Number.parseInt("7000"),
+              });
+            });
+            return { c: () => window.cancelIdleCallback(id), p };
+          }
+          const triggers = [idleListener(), eventListeners()];
+          const hydrationPromise = Promise.race(
+            triggers.map((t) => t.p)
+          ).finally(() => {
+            triggers.forEach((t) => t.c());
+          });
+          return hydrationPromise;
+        })();
+
+        (() => {
+          w._$delayHydration.then((e) => {
+            if (
+              !(e instanceof PointerEvent) &&
+              !(e instanceof MouseEvent) &&
+              !(e instanceof TouchEvent)
+            )
+              return;
+            if (e instanceof MouseEvent && e.type !== "click") return;
+            setTimeout(
+              () =>
+                w.requestIdleCallback(() =>
+                  setTimeout(() => e.target?.click(), 500)
+                ),
+              50
+            );
+          });
+        })();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+const f=(c,n)=>c===2?56.2+1.41*(n*100-152.4)/2.54:53.1+1.36*(n*100-152.4)/2.54,l=(c,n,s,t)=>typeof c=="number"&&c>0?(100-c)*n/100:t===2?.407*n+.267*s*100-19.2:.252*n+.473*s*100-48.3,m=c=>370+21.6*c,M=(c,n)=>c*n;function b(c,n,s,t,a){const o=l(t,c,n,s),r=m(o),e=M(r,a),i=f(s,n);return{tmb:r,massaMagra:o,gastoCalorico:e,pesoIdeal:i}}export{b as c};

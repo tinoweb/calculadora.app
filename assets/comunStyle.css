@@ -1,0 +1,14 @@
+.carding {
+    background-color: #f5f5f5; /* Cor de fundo cinza claro */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px 0; /* Margem externa */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+  }
+  .carding h2, .carding h3 {
+    color: #333; /* Cor de texto mais escura para contraste */
+  }
+  .carding .stat-value {
+    font-size: 2em; /* Tamanho maior para o valor do resultado */
+    font-weight: bold; /* Texto em negrito */
+  }

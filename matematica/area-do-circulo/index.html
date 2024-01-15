@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de Área do Círculo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Calculadora.app" />
+    <meta name="theme-color" content="#7ac6ff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora.app" />
+    <meta property="og:site_name" content="Calculadora.app" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../icon.png" data-h-2c9d455="" />
+    <link
+      rel="apple-touch-icon"
+      href="../../_nuxt/icons/512x512.maskable.0cdbae2f.png"
+      sizes="512x512"
+      data-h-bc1de16=""
+    />
+    <link rel="manifest" href="../../manifest.json" />
+
+    <meta
+      name="description"
+      content="Calcule a área do círculo usando a calculadora.app! Use a nossa calculadora de área do círculo online e obtenha o resultado automaticamente. Experimente já!"
+    />
+    <meta
+      name="keywords"
+      content="calculadora de area do círculo,area do círculo calculadora,area do círculo calculadora online,calcular area do círculo,calculo area do círculo,círculo area,calculo area círculo,calcular area círculo,calculadora online area do círculo,como calcular area do círculo,formula area do círculo,calculadora círculo"
+    />
+    
+    <link rel="stylesheet" href="../../_nuxt/entry.de8cf95e.css" />
+
+    <link rel="stylesheet" href="../../assets/comunStyle.css">
+    <style>
+      #ad-header {
+        height: 90px;
+        margin: 0 auto;
+        max-height: 90px;
+        min-height: 90px;
+        z-index: 100;
+      }
+      .ad-responsive-header {
+        height: 90px;
+        margin: 0 auto;
+        width: 950px;
+      }
+      @media (min-width: 500px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 468px;
+        }
+      }
+      @media (min-width: 800px) {
+        .ad-responsive-header {
+          height: 90px;
+          width: 728px;
+        }
+      }
+
+      .calculo-container {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.calculo-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.calculo-container p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.calculo-lista {
+  list-style: none;
+  padding: 0;
+  counter-reset: step-counter;
+}
+
+.calculo-lista li {
+  counter-increment: step-counter;
+  margin-bottom: 10px;
+}
+
+.calculo-lista li::before {
+  content: counter(step-counter);
+  margin-right: 10px;
+  font-size: 16px;
+  background-color: #eee;
+  border-radius: 50%;
+  padding: 5px 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.formula {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+
+.resultado {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4CAF50; /* Cor verde para destacar o resultado */
+}
+
+    </style>
+
+
+    <script>
+      "use strict";
+      const w = window,
+        de = document.documentElement,
+        knownColorSchemes = ["dark", "light"],
+        preference = window.localStorage.getItem("nuxt-color-mode") || "system";
+      let value = preference === "system" ? getColorScheme() : preference;
+      const forcedColorMode = de.getAttribute("data-color-mode-forced");
+      forcedColorMode && (value = forcedColorMode),
+        addColorScheme(value),
+        (w["__NUXT_COLOR_MODE__"] = {
+          preference,
+          value,
+          getColorScheme,
+          addColorScheme,
+          removeColorScheme,
+        });
+      function addColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList ? de.classList.add(o) : (de.className += " " + o),
+          t && de.setAttribute("data-" + t, e);
+      }
+      function removeColorScheme(e) {
+        const o = "" + e + "",
+          t = "";
+        de.classList
+          ? de.classList.remove(o)
+          : (de.className = de.className.replace(new RegExp(o, "g"), "")),
+          t && de.removeAttribute("data-" + t);
+      }
+      function prefersColorScheme(e) {
+        return w.matchMedia("(prefers-color-scheme" + e + ")");
+      }
+      function getColorScheme() {
+        if (w.matchMedia && prefersColorScheme("").media !== "not all") {
+          for (const e of knownColorSchemes)
+            if (prefersColorScheme(":" + e).matches) return e;
+        }
+        return "light";
+      }
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("/sw.js")
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div id="__nuxt">
+      <!--[-->
+      <div class="navbar w-full p-0 sticky top-0 h-[90px]" id="ad-header">
+        <ins
+          class="adsbygoogle ad-responsive-header"
+          style="display: inline-block; height: 90px"
+          data-ad-client="ca-pub-9723141071587345"
+          data-ad-slot="1772728892"
+        ></ins>
+      </div>
+      <div class="w-full max-w-4xl flex-grow p-6 mx-auto">
+        <header class="mx-auto">
+          <div class="text-sm breadcrumbs">
+            <ul>
+              <li><a href="../../index.html" class="">Calculadora</a></li>
+              <!--[-->
+              <li><a href="../index.html" class="">Matemática</a></li>
+              <li>
+                <a
+                  aria-current="page"
+                  href="index.html"
+                  class="router-link-active router-link-exact-active"
+                  >Área do Círculo</a
+                >
+              </li>
+              <!--]-->
+            </ul>
+          </div>
+        </header>
+        <main>
+          <div class="prose prose-sm md:prose-md">
+            <h1>Calculadora de Área do Círculo</h1>
+          </div>
+          <!--[--><!--[-->
+          <section class="flex flex-col md:flex-row justify-center mb-8">
+            <div class="max-w-sm card flex-shrink-0 w-full shadow-2xl">
+              <div class="card-body not-prose">
+                <h2 class="card-title">Calcule a Área do Círculo</h2>
+                <form id="calculadora-form">
+                  <!--[-->
+                  <div class="form-control">
+                    <label class="label" for="input-raiokqbx0sinz"
+                      ><span class="label-text">Raio</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-raiokqbx0sinz"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        step="any"
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="form-control">
+                    <label class="label" for="input-pihmnd2ak2b"
+                      ><span class="label-text">Pi</span></label
+                    >
+                    <div class="join">
+                      <!----><input
+                        type="number"
+                        id="input-pihmnd2ak2b"
+                        class="join-item input input-bordered w-full"
+                        required
+                        placeholder=""
+                        value="3.14"
+                        step="any"
+                        inputmode="decimal"
+                      /><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <!--]-->
+                  <div class="form-control mt-6">
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-full max-w-xs"
+                      id="calcular"
+                    >
+                      <span>Calcular</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <script>
+
+              document.getElementById('calculadora-form').addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio do formulário
+
+                // Pega o raio e o valor de Pi dos inputs
+                var raio = parseFloat(document.getElementById('input-raiokqbx0sinz').value);
+                var pi = parseFloat(document.getElementById('input-pihmnd2ak2b').value);
+
+                // Calcula a área do círculo
+                var areaCirculo = pi * raio * raio;
+
+                // Mostra o container de resultado
+                var resultadoContainer = document.getElementById('resultado-container');
+                var infoResult =  document.getElementById('infoResult');
+                resultadoContainer.style.display = 'block';
+                infoResult.style.display = 'block';
+
+                // Atualiza o elemento com o resultado
+                document.getElementById('resultado-area-circulo').textContent = areaCirculo.toFixed(2);
+              });
+
+
+            </script>
+
+
+            <div class="prose">
+              <div class="carding stat place-items-center" id="resultado-container" style="display:none;">
+                <div class="stat-title">Área do círculo:</div>
+                <div id="resultado-area-circulo" class="stat-value">---</div>
+              </div>
+              
+              <div class="calculo-container" id="infoResult" style="display:none;">
+                <h2>Cálculo</h2>
+                <p>Para calcular a área do círculo, basta multiplicar o valor de Pi pelo raio ao quadrado.</p>
+                <ol class="calculo-lista">
+                  <li><span class="formula">A = Pi × (raio × raio)</span></li>
+                  <li><span class="formula">A = 3.14 × (20 × 20)</span></li>
+                  <li><span class="resultado">A = 1256</span></li>
+                </ol>
+              </div>
+
+            </div>
+
+
+            <div class="card flex-shrink">
+              <div class="card-body not-prose">
+                <div class="w-[300px] max-w-full h-[300px] max-h-full">
+                  <ins
+                    class="adsbygoogle"
+                    style="display: inline-block; width: 250px; height: 250px"
+                    data-ad-slot="5113988356"
+                    data-ad-format="auto"
+                    data-ad-region="page-0.0734700371766892"
+                    data-ad-layout="fixed"
+                    full-width-responsive="true"
+                  ></ins>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!----><!--]-->
+          <article class="prose">
+            <h2>Calculadora de Área do Círculo</h2>
+            <p>
+              Um círculo é uma figura geométrica plana formada por todos os
+              pontos que estão à mesma distância de um ponto central chamado de
+              centro. A área do círculo é a medida da superfície limitada pela
+              circunferência, que é a linha curva que forma o contorno do
+              círculo. A área do círculo é uma das mais importantes e estudadas
+              na geometria.
+            </p>
+            <p>
+              Para calcular a área do círculo, existem diferentes fórmulas que
+              dependem dos dados que se tem disponíveis. A fórmula mais comum e
+              simples é a que usa o raio do círculo, que é a distância entre o
+              centro e qualquer ponto da circunferência. Essa fórmula é:
+            </p>
+            <p>
+              <strong>A = π·r<sup>2</sup></strong>
+            </p>
+            <p>
+              Onde A é a área do círculo, π é uma constante matemática
+              aproximada para 3,14 e r é o raio do círculo. Essa fórmula pode
+              ser usada quando se conhece o valor do raio ou quando se pode
+              obtê-lo a partir de outros dados.
+            </p>
+            <p>
+              Outra fórmula possível para calcular a área do círculo é a que usa
+              o diâmetro do círculo, que é o segmento de reta que passa pelo
+              centro e une dois pontos opostos da circunferência. O diâmetro é
+              igual a duas vezes o raio, ou seja, d = 2r. Portanto, a fórmula da
+              área em função do diâmetro é:
+            </p>
+            <p>
+              <strong>A = π·(d/2)<sup>2</sup></strong>
+            </p>
+            <p>
+              Onde A é a área do círculo, π é aproximadamente 3,14 e d é o
+              diâmetro do círculo. Essa fórmula pode ser usada quando se conhece
+              o valor do diâmetro ou quando se pode obtê-lo a partir de outros
+              dados.
+            </p>
+            <p>
+              Uma terceira fórmula para calcular a área do círculo é a que usa a
+              circunferência ou o perímetro do círculo, que é a medida do
+              contorno do círculo. A circunferência é igual a duas vezes o
+              produto entre o raio e π, ou seja, C = 2πr. Portanto, a fórmula da
+              área em função da circunferência é:
+            </p>
+            <p>
+              <strong>A = C<sup>2</sup> / (4π)</strong>
+            </p>
+            <p>
+              Onde A é a área do círculo, C é a circunferência ou o perímetro do
+              círculo e π é aproximadamente 3,14. Essa fórmula pode ser usada
+              quando se conhece o valor da circunferência ou quando se pode
+              obtê-lo a partir de outros dados.
+            </p>
+            <p>
+              Para facilitar o cálculo da área do círculo, existem calculadoras
+              online que permitem inserir os dados disponíveis e obter o
+              resultado automaticamente. Algumas calculadoras também mostram os
+              passos da solução e as etapas da fórmula usada.
+            </p>
+            <div itemscope itemtype="https://schema.org/FAQPage">
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">Como calcular a área de um círculo?</h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    Para calcular a área de um círculo, pode-se usar uma das
+                    seguintes fórmulas:
+                  </p>
+                  <ul>
+                    <li>A = π·r<sup>2</sup>, se se conhece o raio r;</li>
+                    <li>
+                      A = π·(d/2)<sup>2</sup>, se se conhece o diâmetro d;
+                    </li>
+                    <li>
+                      A = C<sup>2</sup> / (4π), se se conhece a circunferência
+                      C.
+                    </li>
+                  </ul>
+                  <p>Onde A é a área do círculo e π é aproximadamente 3,14.</p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">
+                  Qual é a unidade de medida da área do círculo?
+                </h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    A unidade de medida da área do círculo depende da unidade de
+                    medida do raio, do diâmetro ou da circunferência. A unidade
+                    de medida da área é sempre o quadrado da unidade de medida
+                    do comprimento. Por exemplo, se o raio é medido em metros, a
+                    área é medida em metros quadrados. Se o diâmetro é medido em
+                    centímetros, a área é medida em centímetros quadrados. Se a
+                    circunferência é medida em milímetros, a área é medida em
+                    milímetros quadrados.
+                  </p>
+                </div>
+              </div>
+              <div
+                itemprop="mainEntity"
+                itemscope
+                itemtype="https://schema.org/Question"
+              >
+                <h3 itemprop="name">O que é o número π?</h3>
+                <div
+                  itemprop="acceptedAnswer"
+                  itemscope
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p itemprop="text">
+                    O número π é uma constante matemática que representa a razão
+                    entre a circunferência e o diâmetro de qualquer círculo. O
+                    valor exato de π é irracional e infinito, mas pode ser
+                    aproximado por 3,14 ou 22/7. O número π aparece nas fórmulas
+                    da área e da circunferência do círculo, bem como em outras
+                    áreas da matemática.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p>Referências:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://exercicios.brasilescola.uol.com.br/exercicios-matematica/exercicios-sobre-area-circulo.htm"
+                  target="_blank"
+                  >Lista de Exercícios sobre área do círculo - Brasil Escola</a
+                >
+              </li>
+            </ul>
+          </article>
+          <!--]-->
+        </main>
+        <footer class="mt-8">
+          <ul class="menu sm:menu-horizontal xs:min-w-max rounded-box mx-auto">
+            <!--[-->
+            <li>
+              <a href="../../arquitetura/index.html" class="">Arquitetura</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../arquitetura/caixa-dagua/index.html" class=""
+                    >Caixa d&#39;Água</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../arquitetura/inclinacao-de-rampa/index.html"
+                    class=""
+                    >Inclinação de Rampa</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../datas/index.html" class="">Datas</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../datas/adicionar-dias-em-uma-data/index.html"
+                    class=""
+                    >Adicionar dias em uma data</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/diferenca-entre-datas/index.html"
+                    class=""
+                    >Diferença entre Datas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../datas/remover-dias-de-uma-data/index.html"
+                    class=""
+                    >Remover dias em uma data</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../financeiro/index.html" class="">Financeiro</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../financeiro/cheque-especial/index.html" class=""
+                    >Cheque Especial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-consignado/index.html"
+                    class=""
+                    >Empréstimo Consignado</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/emprestimo-pessoal/index.html"
+                    class=""
+                    >Empréstimo Pessoal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../financeiro/financiamento-veiculos/index.html"
+                    class=""
+                    >Financiamento de Veículos</a
+                  >
+                </li>
+                <li>
+                  <a href="../../financeiro/juros-compostos/index.html" class=""
+                    >Juros Compostos</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../index.html" class="">Matemática</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../area-do-cilindro/index.html" class=""
+                    >Área do Cilindro</a
+                  >
+                </li>
+                <li>
+                  <a
+                    aria-current="page"
+                    href="index.html"
+                    class="router-link-active router-link-exact-active"
+                    >Área do Círculo</a
+                  >
+                </li>
+                <li>
+                  <a href="../area-do-retangulo/index.html" class=""
+                    >Área do Retângulo</a
+                  >
+                </li>
+                <li>
+                  <a href="../area-do-triangulo/index.html" class=""
+                    >Área do Triângulo</a
+                  >
+                </li>
+                <li><a href="../bhaskara/index.html" class="">Bhaskara</a></li>
+                <li>
+                  <a href="../desvio-padrao/index.html" class=""
+                    >Desvio Padrão</a
+                  >
+                </li>
+                <li>
+                  <a href="../equacao-segundo-grau/index.html" class=""
+                    >Equação de Segundo Grau</a
+                  >
+                </li>
+                <li><a href="../mdc/index.html" class="">MDC</a></li>
+                <li>
+                  <a href="../media-ponderada/index.html" class=""
+                    >Média Ponderada</a
+                  >
+                </li>
+                <li><a href="../media/index.html" class="">Média</a></li>
+                <li><a href="../mediana/index.html" class="">Mediana</a></li>
+                <li><a href="../mmc/index.html" class="">MMC</a></li>
+                <li><a href="../moda/index.html" class="">Moda</a></li>
+                <li>
+                  <a href="../porcentagem/index.html" class="">Porcentagem</a>
+                </li>
+                <li>
+                  <a href="../regra-de-tres/index.html" class=""
+                    >Regra de Três</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../nutricao/index.html" class="">Nutrição</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../nutricao/densidade-corporal/index.html"
+                    class=""
+                    >Densidade Corporal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/gasto-energetico-diario/index.html"
+                    class=""
+                    >Gasto Energético Diário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../nutricao/imc/index.html" class="">IMC</a>
+                </li>
+                <li>
+                  <a href="../../nutricao/macronutrientes/index.html" class=""
+                    >Macronutrientes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../nutricao/taxa-metabolica-basal/index.html"
+                    class=""
+                    >Taxa Metabólica Basal</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../texto/index.html" class="">Texto</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a
+                    href="../../texto/contador-de-caracteres/index.html"
+                    class=""
+                    >Contador de Caracteres</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/nuvem-de-palavras/index.html" class=""
+                    >Nuvem de Palavras</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/ordem-alfabetica/index.html" class=""
+                    >Ordem alfabética</a
+                  >
+                </li>
+                <li>
+                  <a href="../../texto/palavras-chave/index.html" class=""
+                    >Palavras-chave</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <li>
+              <a href="../../trabalhista/index.html" class="">Trabalhista</a>
+              <ul>
+                <!--[-->
+                <li>
+                  <a href="../../trabalhista/13-salario/index.html" class=""
+                    >13º Salário</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/ferias/index.html" class=""
+                    >Férias</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/fgts/index.html" class="">FGTS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/horas-extras/index.html" class=""
+                    >Horas Extras</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/horas-trabalhadas/index.html"
+                    class=""
+                    >Horas Trabalhadas</a
+                  >
+                </li>
+                <li>
+                  <a href="../../trabalhista/inss/index.html" class="">INSS</a>
+                </li>
+                <li>
+                  <a href="../../trabalhista/irrf/index.html" class="">IRRF</a>
+                </li>
+                <li>
+                  <a
+                    href="../../trabalhista/salario-liquido/index.html"
+                    class=""
+                    >Salário Líquido</a
+                  >
+                </li>
+                <!--]-->
+              </ul>
+            </li>
+            <!--]-->
+          </ul>
+          <div class="mx-auto">
+            <a href="../../index.html"
+              ><img
+                src="../../android-chrome-192x192.png"
+                alt="Calculadora"
+                class="mx-auto"
+                width="192"
+                height="192"
+            /></a>
+          </div>
+          <div class="prose text-xs mx-auto">
+            <p>
+              Utilizamos anúncios e/ou links de afiliados para manter nosso site
+              e oferecer as calculadoras gratuitamente.
+            </p>
+            <p>
+              As calculadoras fornecida neste site são gratuitas e tem fins
+              informativos. Não nos responsabilizamos por quaisquer danos,
+              perdas ou consequências negativas resultantes do uso das
+              calculadoras. Consulte um profissional para orientação específica.
+            </p>
+          </div>
+        </footer>
+      </div>
+      <!--]-->
+    </div>
+    <script
+      type="application/json"
+      id="__NUXT_DATA__"
+      data-ssr="true"
+      data-src="/matematica/area-do-circulo/_payload.json"
+    >
+      [
+        { "state": 1, "_errors": 7, "serverRendered": 5, "prerenderedAt": 9 },
+        ["Reactive", 2],
+        { "$scolor-mode": 3 },
+        { "preference": 4, "value": 4, "unknown": 5, "forced": 6 },
+        "system",
+        true,
+        false,
+        ["Reactive", 8],
+        {},
+        1704210071904
+      ]
+    </script>
+    <script>
+      window.__NUXT__ = {};
+      window.__NUXT__.config = {
+        public: {
+          "google-adsense": {
+            tag: "adsbygoogle",
+            pageLevelAds: false,
+            includeQuery: false,
+            analyticsUacct: "",
+            analyticsDomainName: "",
+            overlayBottom: false,
+            test: false,
+            onPageLoad: false,
+            pauseOnLoad: false,
+            id: "ca-pub-9723141071587345",
+          },
+          gtm: {
+            devtools: true,
+            id: "GTM-KWXRWC7",
+            enabled: true,
+            enableRouterSync: true,
+            debug: false,
+          },
+          pwaManifest: {
+            name: "Calculadora.app",
+            short_name: "Calculadora.app",
+            description: "Calculadora.app",
+            lang: "pt",
+            start_url: "/",
+            display: "standalone",
+            background_color: "#ffffff",
+            theme_color: "#7ac6ff",
+            icons: [
+              {
+                src: "/icon.png",
+                sizes: "512x512",
+                type: "image/png",
+                purpose: "any",
+              },
+              {
+                src: "/icon.png",
+                sizes: "512x512",
+                type: "image/png",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/64x64.0cdbae2f.png",
+                type: "image/png",
+                sizes: "64x64",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/64x64.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "64x64",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/120x120.0cdbae2f.png",
+                type: "image/png",
+                sizes: "120x120",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/120x120.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "120x120",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/144x144.0cdbae2f.png",
+                type: "image/png",
+                sizes: "144x144",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/144x144.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "144x144",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/152x152.0cdbae2f.png",
+                type: "image/png",
+                sizes: "152x152",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/152x152.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "152x152",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/192x192.0cdbae2f.png",
+                type: "image/png",
+                sizes: "192x192",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/192x192.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "192x192",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/384x384.0cdbae2f.png",
+                type: "image/png",
+                sizes: "384x384",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/384x384.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "384x384",
+                purpose: "maskable",
+              },
+              {
+                src: "/_nuxt/icons/512x512.0cdbae2f.png",
+                type: "image/png",
+                sizes: "512x512",
+                purpose: "any",
+              },
+              {
+                src: "/_nuxt/icons/512x512.maskable.0cdbae2f.png",
+                type: "image/png",
+                sizes: "512x512",
+                purpose: "maskable",
+              },
+            ],
+            orientation: "portrait",
+          },
+        },
+        app: { baseURL: "/", buildAssetsDir: "/_nuxt/", cdnURL: "" },
+      };
+    </script>
+    <script
+      type="module"
+      src="../../_nuxt/entry.109cc120.js"
+      crossorigin
+    ></script>
+    <script>
+      (function () {
+        const w = window;
+        w._$delayHydration = (() => {
+          if (!("requestIdleCallback" in w) || !("requestAnimationFrame" in w))
+            return new Promise((resolve) => resolve("not supported"));
+          function eventListeners() {
+            const c = new AbortController();
+            const p = new Promise((resolve) => {
+              const hydrateOnEvents =
+                "mousemove,scroll,keydown,click,touchstart,wheel".split(",");
+              function handler(e) {
+                hydrateOnEvents.forEach((e2) =>
+                  w.removeEventListener(e2, handler)
+                );
+                requestAnimationFrame(() => resolve(e));
+              }
+              hydrateOnEvents.forEach((e) => {
+                w.addEventListener(e, handler, {
+                  capture: true,
+                  once: true,
+                  passive: true,
+                  signal: c.signal,
+                });
+              });
+            });
+            return { c: () => c.abort(), p };
+          }
+          function idleListener() {
+            let id;
+            const p = new Promise((resolve) => {
+              const isMobile = w.innerWidth < 640;
+              const timeout = isMobile
+                ? Number.parseInt("5000")
+                : Number.parseInt("4000");
+              const timeoutDelay = () =>
+                setTimeout(
+                  () => requestAnimationFrame(() => resolve("timeout")),
+                  timeout
+                );
+              id = w.requestIdleCallback(timeoutDelay, {
+                timeout: Number.parseInt("7000"),
+              });
+            });
+            return { c: () => window.cancelIdleCallback(id), p };
+          }
+          const triggers = [idleListener(), eventListeners()];
+          const hydrationPromise = Promise.race(
+            triggers.map((t) => t.p)
+          ).finally(() => {
+            triggers.forEach((t) => t.c());
+          });
+          return hydrationPromise;
+        })();
+
+        (() => {
+          w._$delayHydration.then((e) => {
+            if (
+              !(e instanceof PointerEvent) &&
+              !(e instanceof MouseEvent) &&
+              !(e instanceof TouchEvent)
+            )
+              return;
+            if (e instanceof MouseEvent && e.type !== "click") return;
+            setTimeout(
+              () =>
+                w.requestIdleCallback(() =>
+                  setTimeout(() => e.target?.click(), 500)
+                ),
+              50
+            );
+          });
+        })();
+      })();
+    </script>
+  </body>
+</html>
